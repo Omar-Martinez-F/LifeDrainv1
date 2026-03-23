@@ -1,4 +1,10 @@
 package com.example.lifedrain
 
-class MainView {
+import androidx.compose.runtime.Composable
+
+@Composable
+fun MainView() {
+//    Column{
+//
+//    }
 }
