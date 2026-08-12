@@ -26,8 +26,32 @@
                     </option>
                 </select>
             </div>
+        
+        <div class = "form-field">
+            <label for="players">Number of players</label>
 
+            <input
+                id="players"
+                name="players"
+                min="1"
+                max="4"
+                value = "2"
+                required
+                >
+        </div>
+        <button type="submit"> Start game </button>   
         </form>
     </main>
+
+
+    <script>
+        const modeSelect = document.querySelector("#mode");
+        const playInput = document.querySelector("#players");
+
+        modeSelect.addEventListener("change", () => {
+            const selectedOption = modeSelect.options[modeSelect.selectedIndex];
+
+            playerInput.value = selectedOption.dataset.defaultPlayers;
+        });
 </body>
 </html>
