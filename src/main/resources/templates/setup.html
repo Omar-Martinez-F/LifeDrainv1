@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeDrain</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body class="setup-page">
+    <main class = "setup-container">
+        <h1> LifeDrain </h1>
+        <p>Configure your Magic game.</p>
+
+        <form th:action="@{/game}" method = "get">
+            <div class="form-field">
+                <label for="mode">Game mode</label>
+
+                <select id="mode" name="mode">
+                    <option 
+                        th:each="gameMode : ${gameModes}"
+                        th:value="${gameMode.name()}"
+                        th:text="${gameMode.displayName}"
+                        th:attr="data-default-players=${gameMode.defaultPlayers}"
+                    >
+                        Standard
+                    </option>
+                </select>
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>
