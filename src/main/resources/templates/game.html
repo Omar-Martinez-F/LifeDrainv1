@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeDrain Game</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+    <script th:src="@{/js/game.js}" defer></script>
+</head>
+<body class="game-page">
+    <header clas = "game-page">
+        <div>
+                <strong th:text = "${mode.displayName}">
+                    Commander
+                </strong>
+        </div>
+        <div id="timer" class="timer">
+            00:00
+        </div>
+        <button id="timer-button" type="button">
+            pause
+        </button>
+    </header>
+    
+    <main id = "player-card" class="player-id" th:attr="data-starting-life=${startingLife}">
+
+        <section 
+            class = "player-card" 
+            th:each= "playNumber : ${#numbers.sequence(1,playerCount)}"
+        >
+    
+        <h2 th:text = "|Player ${playerNumber}|">
+            player 1
+        </h2>
+
+        <p class="life-controls">
+            <button type="button" data-life-change = "-5"
+        >
+        -5
+        </button>
+
+        <button
+            type="button"
+            data-life-change = "-1"
+        >
+            -1
+        </button>
+
+        <button
+            type="button"
+            data-life-change = "1"
+            >
+            +1
+        </button>
+
+        <button type="button" data-life-change = "5">
+        +5
+        </button>
+    </div>
+</section>
+</main>
+<footer class = "game-footer">
+        <button id="undo-button" type="button" disabled>
+            undo
+        </button>
+        <button id = "reset-button" type = "button">
+            reset-button
+        </button>
+        <a th:href="@{/}">
+            New Game
+        </a>
+    </footer>
+</body>
+</html>
