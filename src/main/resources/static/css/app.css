@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
+    background: #171717;
+    color: #ffffff;
+}
+
+button,
+select,
+input,
+a {
+    font: inherit;
+}
+
+button,a {
+    min-height: 48px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.setup-page{
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.setup-container{
+    width: min(100%,480px);
+    padding: 32px;
+    border: 1px solid #555555;
+    border-radius: 12px;
+    background: #242424;
+}
+
+.form-field{
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.form-field input,
+.form-field select {
+    min-height: 48px;
+    padding: 8px;
+}
+
+.setup-container form >button {
+    width: 100%;
+}
+
+.game-page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.game-footer a {
+    display: inline-grid;
+}
