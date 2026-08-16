@@ -24,7 +24,11 @@
     
     <main id = "player-card" class="player-id" th:attr="data-starting-life=${startingLife}">
 
-        <section class = "player-card" th:each= "playNumber : ${numbers.sequence()}"
+        <section 
+            class = "player-card" 
+            th:each= "playNumber : ${#numbers.sequence(1,playerCount)}"
+        >
+    
         <h2 th:text = "|Player ${playerNumber}|">
             player 1
         </h2>

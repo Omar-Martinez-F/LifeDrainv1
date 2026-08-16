@@ -61,4 +61,41 @@ button {
 
 .game-footer a {
     display: inline-grid;
+    place-items: center;
+    padding: 0 16px;
+    color: #FFFFFF;
+}
+.timer{
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+}
+.player-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    min-height: 0;
+}
+.player-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    padding: 20px;
+    border: 1px, solid #555555;
+}
+.life-total{
+    margin: 16px 0;
+    font-size: clamp(5rem,15vw,100rem);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.life-controls{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 8px;
+    width: 100%;
+}
+.life-controls button {
+    font-size: 1.25rem;
 }
