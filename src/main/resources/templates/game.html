@@ -22,16 +22,27 @@
         </button>
     </header>
     
-    <main id = "player-card" class="player-id" th:attr="data-starting-life=${startingLife}">
+    <main 
+        id="player-grid"
+        class="player-grid"
+        th:classappend="|players-${playerCount}|"
+        th:attr="data-starting-life=${startingLife}"
+    >
 
         <section 
             class = "player-card" 
-            th:each= "playNumber : ${#numbers.sequence(1,playerCount)}"
+            th:each= "playerNumber : ${#numbers.sequence(1, playerCount)}"
         >
     
         <h2 th:text = "|Player ${playerNumber}|">
             player 1
         </h2>
+
+        <p class="life-total" th:text="${startingLife}">
+            20
+        </p>
+
+        
 
         <p class="life-controls">
             <button type="button" data-life-change = "-5"

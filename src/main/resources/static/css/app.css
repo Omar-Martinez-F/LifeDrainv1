@@ -55,8 +55,15 @@ button {
 }
 
 .game-page {
+    /* display: grid;
+    grid-template-rows: auto 1fr auto; */
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto minmax(0,1fr) auto;
 }
 
 .game-footer a {
@@ -66,36 +73,133 @@ button {
     color: #FFFFFF;
 }
 .timer{
-    font-size: 1.5rem;
+    /* font-size: 1.5rem;
+    font-variant-numeric: tabular-nums; */
+    font-size: clamp(1.1rem, 3vh, 1.5rem);
     font-variant-numeric: tabular-nums;
 }
 .player-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    /* grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    grid-template-rows: repeat(auto-fit,minmax(240px,1fr)); */
+
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    /* box-sizing: border-box; */
     min-height: 0;
+
 }
+
+
+.player-grid.players-1 {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+}
+
+/* Two players: two boxes next to each other */
+.player-grid.players-2 {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+        minmax(0, 1fr);
+}
+
+/* Three players: two on top, one across the bottom */
+.player-grid.players-3 {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+        repeat(2, minmax(0, 1fr));
+}
+
+.player-grid.players-3 .player-card:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Four players: two columns and two rows */
+.player-grid.players-4 {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+        repeat(2, minmax(0, 1fr));
+}
+
+
 .player-card{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 320px;
     padding: 20px;
     border: 1px, solid #555555;
+    */
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: clamp(6px,1.5vw,20px);
+    border: 1px solid #555555;
 }
 .life-total{
-    margin: 16px 0;
+    /* margin: 16px 0;
     font-size: clamp(5rem,15vw,100rem);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums; */
+    margin: clamp(4px,1vh,16px) 0;
+
+    font-size: clamp(3rem,12vh,9rem);
     font-weight: 700;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
+
+.player-grid.players-3 .life-total,
+.player-grid.players-4 .life-total {
+    font-size: clamp(2.75rem, 9vh, 6rem);
+}
+
+
 .life-controls{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 8px;
+    /* grid-template-columns: repeat(4,1fr); */
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    /* gap: 8px; */
+    gap: clamp(3px,0.75vw,8px);
     width: 100%;
 }
 .life-controls button {
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
+    min-width: 0;
+    min-height: clamp(38px,7vh,56px);
+
+    padding: 4px;
+    font-size: clamp(0.9rem,2vh,1.25rem);
+}
+
+.player-card h2 {
+    margin: 0;
+    font-size: clamp(1rem, 2.5vh, 1.5rem);
+    text-align: center;
+}
+
+.game-header,
+.game-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 8px;
+    padding: clamp(6px, 1vh, 12px);
+
+    background: #242424;
 }
