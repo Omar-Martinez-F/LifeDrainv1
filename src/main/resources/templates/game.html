@@ -22,7 +22,12 @@
         </button>
     </header>
     
-    <main id = "player-grid" class="player-id" th:attr="data-starting-life=${startingLife}">
+    <main 
+        id="player-grid"
+        class="player-grid"
+        th:classappend="|players-${playerCount}|"
+        th:attr="data-starting-life=${startingLife}"
+    >
 
         <section 
             class = "player-card" 
