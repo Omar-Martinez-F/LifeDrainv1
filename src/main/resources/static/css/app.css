@@ -72,6 +72,9 @@ button {
 .player-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    grid-template-rows: repeat(auto-fit,minmax(240px,1fr));
+
+    box-sizing: border-box;
     min-height: 0;
 }
 .player-card{
